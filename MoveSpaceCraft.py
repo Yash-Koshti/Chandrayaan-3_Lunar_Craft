@@ -10,33 +10,34 @@ class Spacecraft:
                     self.pos[0] += 1
                 elif self.pos[3] == 'W':
                     self.pos[0] -= 1
-                if self.pos[3] == 'N':
+                elif self.pos[3] == 'N':
                     self.pos[1] += 1
-                if self.pos[3] == 'S':
+                elif self.pos[3] == 'S':
                     self.pos[1] -= 1
-                if self.pos[3] == 'U':
+                elif self.pos[3] == 'U':
                     self.pos[2] += 1
-                if self.pos[3] == 'D':
+                elif self.pos[3] == 'D':
                     self.pos[2] -= 1
             elif c == 'b':
                 if self.pos[3] == 'E':
                     self.pos[0] -= 1
                 elif self.pos[3] == 'W':
                     self.pos[0] += 1
-                if self.pos[3] == 'N':
+                elif self.pos[3] == 'N':
                     self.pos[1] -= 1
-                if self.pos[3] == 'S':
+                elif self.pos[3] == 'S':
                     self.pos[1] += 1
-                if self.pos[3] == 'U':
+                elif self.pos[3] == 'U':
                     self.pos[2] -= 1
-                if self.pos[3] == 'D':
+                elif self.pos[3] == 'D':
                     self.pos[2] += 1
 
         return self.pos
 
     def Left_and_Right(self, commands: list):
         direction = ['N', 'E', 'S', 'W']
-        cur_face = direction.index(self.pos[3])
+        if self.pos[3] in direction:
+            cur_face = direction.index(self.pos[3])
         for c in commands:
             c = str(c).lower()
             if c == 'r': #rotate clockwise
