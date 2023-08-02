@@ -45,3 +45,6 @@ class Spacecraft:
                 cur_face -= 1
         self.pos[3] = direction[cur_face]
         return self.pos
+
+    def Up_and_Down(self, commands: list):
+        pass
