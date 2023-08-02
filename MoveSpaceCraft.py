@@ -35,4 +35,13 @@ class Spacecraft:
         return self.pos
 
     def Left_and_Right(self, commands: list):
-        pass
+        direction = ['N', 'E', 'S', 'W']
+        cur_face = direction.index(self.pos[3])
+        for c in commands:
+            c = str(c).lower()
+            if c == 'r': #rotate clockwise
+                cur_face += 1
+            elif c == 'l': #rotate anti-clockwise
+                cur_face -= 1
+        self.pos[3] = direction[cur_face]
+        return self.pos
