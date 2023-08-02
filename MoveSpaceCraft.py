@@ -1,8 +1,10 @@
 class Spacecraft:
     def __init__(self) -> None:
         self.pos = [0, 0, 0, 'N']
+        self.prev_face = 'N'
     
     def Forward_and_Backward(self, commands: list):
+        self.prev_face = self.pos[3]
         for c in commands:
             c = str(c).lower()
             if c == 'f':
@@ -35,6 +37,7 @@ class Spacecraft:
         return self.pos
 
     def Left_and_Right(self, commands: list):
+        self.prev_face = self.pos[3]
         direction = ['N', 'E', 'S', 'W']
         cur_face = direction.index(self.pos[3])
         for c in commands:
@@ -47,4 +50,15 @@ class Spacecraft:
         return self.pos
 
     def Up_and_Down(self, commands: list):
-        pass
+        for c in commands:
+            c = str(c).lower()
+            if c == 'u':
+                if self.pos[3] in ['N', 'E', 'S', 'W']:
+                    self.pos[3] = 'U'
+                elif self.pos[3] == 'U':
+                    self.pos[3] = 'N'
+            elif c == 'd':
+                if self.pos[3] in ['N', 'E', 'S', 'W']:
+                    self.pos[3] = 'D'
+                elif self.pos[3] == 'D':
+                    self.pos[3] = 'S'
