@@ -1,36 +1,38 @@
 class Spacecraft:
     def __init__(self) -> None:
-        self.pos = [0, 0, 0]
-        self.facing = 'N'
+        self.pos = [0, 0, 0, 'N']
     
     def Forward_and_Backward(self, commands: list):
         for c in commands:
             c = str(c).lower()
             if c == 'f':
-                if self.facing == 'E':
+                if self.pos[3] == 'E':
                     self.pos[0] += 1
-                elif self.facing == 'W':
+                elif self.pos[3] == 'W':
                     self.pos[0] -= 1
-                if self.facing == 'N':
+                if self.pos[3] == 'N':
                     self.pos[1] += 1
-                if self.facing == 'S':
+                if self.pos[3] == 'S':
                     self.pos[1] -= 1
-                if self.facing == 'U':
+                if self.pos[3] == 'U':
                     self.pos[2] += 1
-                if self.facing == 'D':
+                if self.pos[3] == 'D':
                     self.pos[2] -= 1
             elif c == 'b':
-                if self.facing == 'E':
+                if self.pos[3] == 'E':
                     self.pos[0] -= 1
-                elif self.facing == 'W':
+                elif self.pos[3] == 'W':
                     self.pos[0] += 1
-                if self.facing == 'N':
+                if self.pos[3] == 'N':
                     self.pos[1] -= 1
-                if self.facing == 'S':
+                if self.pos[3] == 'S':
                     self.pos[1] += 1
-                if self.facing == 'U':
+                if self.pos[3] == 'U':
                     self.pos[2] -= 1
-                if self.facing == 'D':
+                if self.pos[3] == 'D':
                     self.pos[2] += 1
 
         return self.pos
+
+    def Left_and_Right(self, commands: list):
+        pass
