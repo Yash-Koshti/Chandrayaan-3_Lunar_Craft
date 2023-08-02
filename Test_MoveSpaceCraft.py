@@ -17,5 +17,9 @@ class Test(unittest.TestCase):
         commands = ['d', 'u', 'd', 'd', 'u']
         self.assertEqual(self.shuttle.Up_and_Down(commands), [0, 0, 0, 'U'], "Test Up & Down failed!")
 
+    def test_execute_all_commands(self):
+        commands = ['f', 'r', 'u', 'b', 'l']
+        self.assertEqual(self.shuttle.Execute_all_commands(commands), [0, 1, -1, 'W'], "Test Execute all commands failed!")
+
 # unittest.main()
 unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(Test))
