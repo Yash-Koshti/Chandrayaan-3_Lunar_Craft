@@ -57,8 +57,13 @@ class Spacecraft:
                     self.pos[3] = 'U'
                 elif self.pos[3] == 'U':
                     self.pos[3] = 'N'
+                else:
+                    self.pos[3] = 'N'
             elif c == 'd':
                 if self.pos[3] in ['N', 'E', 'S', 'W']:
                     self.pos[3] = 'D'
                 elif self.pos[3] == 'D':
                     self.pos[3] = 'S'
+                else:
+                    self.pos[3] = 'S'
+        return self.pos
